@@ -64,7 +64,7 @@ If you've been asked to merge changes into the production website:
  1. Go to https://github.com/DeepBlueRoboticsMentors/DeepBlueRoboticsMentors.github.io/pulls. There should be one open pull request. (If there is more than one, work with the people who are requesting that their changes be merged to figure out which changes one to merge.) Click on the pull request.
  2. Confirm that the request is to merge the `master` branch of the `DeepBlueRobotics/DeepBlueRobotics.github.io` repository into the `master` branch of the `DeepBlueRoboticsMentors/DeepBlueRoboticsMentors.github.io` repository. If the request lists different repositories or branches, you will not be able to review it by looking at the staging site, so you should ask the requester to make the changes to the staging site first.
  3. Verify that the staging site, https://deepbluerobotics.github.io contains the desired corrections and is no worse than the production site, https://carlmontrobotics.org/, ideally on both a computer and a phone.
- 4. If everything looks good, click the button to merge the pull request.
+ 4. If everything looks good, return to the page containing the pull request, click the `Merge Pull Request` and then `Confirm Merge` to merge the pull request.
  5. it should only take a few seconds for your changes to show up at https://carlmontrobotics.org/. If you aren't sure whether the site has been regenerated yet, you can check https://github.com/DeepBlueRoboticsMentors/DeepBlueRoboticsMentors.github.io/deployments to see how recently the last deployment occurred. 
 
  ## Undoing Changes to the Production Website
@@ -73,6 +73,19 @@ If you've been asked to merge changes into the production website:
 
 # Making Changes Offline
 
+Although it's not strictly necessary, if you have a Mac or Linux computer and are a power user, you may find it convenient to make and view changes directly on your local computer before pushing them onto the staging site. This can be particularly useful if you need to change multiple files or want to experiment with changes quickly. To do this, you'll need some familiarity with Git and the command line. If you are interested, here is the process:
+
+ 1. Clone https://github.com/DeepBlueRobotics/DeepBlueRobotics.github.io.git into a directory on your computer.
+ 2. Open a shell in that directory.
+ 3. Install [Ruby](https://www.ruby-lang.org/en/) and [Bundler](https://bundler.io/), if they are not already installed.
+ 4. Run `bundle install` to install any missing gems.
+ 5. Install [Node.js](https://nodejs.org/en/) and [npx](https://www.npmjs.com/package/npx), if they are not already installed.
+ 6. Run `npx netlify-cms-proxy-server &` to run a dummy Netlify CMS identity server in the background.
+ 7. Run `bundle exec jekyll serve --safe` to run Jekyll which will generate a static site at http://127.0.0.1:4000 and update it whenever one of the source files changes.
+ 8. View the local copy of the site at http://127.0.0.1:4000, and make changes using the admin interface at http://127.0.0.1:4000/admin, or using a text editor.
+ 9. When you are finished making changes, commit them, pull (resolving conflicts if necessary, and push.
+ 10. [Request merging of your changes into the production website](#requesting-merging-of-changes-into-the-production-website).
+
 # Administration
 
 ## Adding and Removing Editors
@@ -80,6 +93,23 @@ If you've been asked to merge changes into the production website:
 ## Adding and Removing Publishers
 
 ## Configuring a New Repository
+
+If you want to fork the repository for use as the GitHub pages site for a user or organization (note that the site's internal links won't work if you try to use it as a *project* GitHub pages site):
+
+ 1. Fork the https://github.com/DeepBlueRobotics/DeepBlueRobotics.github.io repository to your own account or an organization
+ 2. Rename the forked repository to `<user>.github.io` or `<organization>.github.io`.
+ 3.  To make the Netlify CMS admin page work:
+  1. Follow the [Creating an GitHub OAuth App](https://cnly.github.io/2018/04/14/just-3-steps-adding-netlify-cms-to-existing-github-pages-site-within-10-minutes.html#creating-an-github-oauth-app) and [Creating a Netlify Site](https://cnly.github.io/2018/04/14/just-3-steps-adding-netlify-cms-to-existing-github-pages-site-within-10-minutes.html#creating-a-netlify-site) parts of [these instructions](https://cnly.github.io/2018/04/14/just-3-steps-adding-netlify-cms-to-existing-github-pages-site-within-10-minutes.html)
+  2. If the forked repository is for an organization, [request (or grant) organization approval for the OAuth app](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/requesting-organization-approval-for-oauth-apps).
+  2. Edit `admin/config.yml` to add 
+  ```
+  {% elsif site.github.owner_name == "<your user or organization>" %}
+  site_domain: <your netlify site name>.netlify.com
+  ```
+  above the line that reads 
+  ```
+    {% comment %}Add additional elsif clauses for other GitHub users/orgs Netlify site domains above this line{% endcomment %}
+  ```
 
 # Behind the Scenes
 
