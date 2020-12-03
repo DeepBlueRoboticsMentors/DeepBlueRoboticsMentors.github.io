@@ -2,18 +2,19 @@
 who_we_are:
   title: Who We Are
   image: /images/DSCF2291.JPG
-  content: >
-    FIRST Robotics Competition (FRC) Team 199, Deep Blue Robotics, is a
-    third-year team established in August of 2015 by students at Carlmont High
-    School to make STEM and business education accessible for Carlmont students
-    through the avenue of FIRST. Deep
+  content: >-
+    Established in August of 2015, FIRST Robotics Competition (FRC) Team 199,
+    Deep Blue Robotics, gives students the opportunity to learn first-hand about
+    essential technical and business skills, inspiring them to reach out into a
+    world of opportunities for innovation and entrepreneurship. As members of
+    the team we participate in an annual competition put on by the FIRST
+    organization ([firstinspires.org](http://firstinspires.org/)). FIRST (For
+    Inspiration & Recognition of Science & Technology) organizes several
+    different competitions targeted at different grade ranges. We compete in the
+    FIRST Robotics Competition (FRC), as Team 199, Deep Blue Robotics.
 
-    Blue Robotics participates in FRC, the FIRST-organized robotics competition. Each year, we are handed a challenge from FIRST and have six weeks to build a robot to overcome that challenge. To learn more about FIRST and FRC, visit the FIRST website at
 
-    [firstinspires.org](http://firstinspires.org){:target="_blank"}.
-
-
-    Team 199 consists of Carlmont students, invaluable mentors, and supportive parents. Carlmont also has a Robotics Engineering class.
+    Team 199 consists of Carlmont students, invaluable mentors, and supportive parents.
 layout: default
 permalink: /about
 title: About Us
@@ -28,47 +29,6 @@ mission:
     environment. We are dedicated to thriving as
 
     a team, and further extending our hands to greet more members of our community with the gracious professionalism and technological opportunities that FIRST has to offer.
-mentors:
-  - name: Al Davies
-    role: Mentor
-  - name: Alex Shimota
-    role: Mentor
-  - name: Bill Crook
-    role: Mentor
-  - name: Blane Stroh
-    role: Mentor
-  - name: Bonnie Wolf
-    role: Mentor
-  - name: Cameron Young
-    role: Mentor
-  - name: Charles Shanefelter
-    role: Mentor
-  - name: Chris Moropoulos
-    role: Mentor
-  - name: Cristina Tudor
-    role: Mentor
-  - name: Curt Nehring
-    role: Mentor
-  - name: David Talcott
-    role: Mentor
-  - name: Dean Brettle
-    role: Mentor
-  - name: Jim Wilfong
-    role: Mentor
-  - name: Matt Moropoulos
-    role: Mentor
-  - name: Michael Gottesman
-    role: Mentor
-  - name: Olga Strongin
-    role: Mentor
-  - name: Rene Saltzherr
-    role: Mentor
-  - name: Sally Piao
-    role: Mentor
-  - name: Shimpei Koike
-    role: Mentor
-  - name: Stoyan Gaydarov
-    role: Mentor
 history:
   title: History
   image: /images/random-image-of-team.jpg
@@ -97,10 +57,14 @@ our_mentors:
       role: Mentor
     - name: Bonnie Wolf
       role: Lead Business Mentor
-    - name: Chris Moropoulo
+    - name: Chris Moropoulos
+      role: Mentor
+    - name: Dan Deasy
+      role: School Faculty
+    - name: David Elliston
       role: Mentor
     - name: Dean Brettle
-      role: Coach, Lead Sensing & Actuation Mentor
+      role: Coach, Lead SenAct Mentor
     - name: Jim Wilfong
       role: Mentor
     - name: Jennifer Low
@@ -111,16 +75,14 @@ our_mentors:
       role: Mentor
     - name: Mike Bushue
       role: Lead Fabrication Mentor
-    - name: Michyle LaPedis
-      role: Mentor
     - role: Mentor
       name: Michyle LaPedis
     - name: Mike Gottesman
       role: Mentor
     - name: Nicole Bachelor
       role: Mentor
-    - name: Ms Carefoot Carefoot
-      role: Staff Chaperone
+    - name: Sevgi Carefoot
+      role: School Faculty
     - name: Steve Siefert
       role: Lead Design Mentor
     - name: Susan Neth
@@ -177,7 +139,7 @@ our_mentors:
 			</h3>
 	<div class="body-font">{{page.our_mentors.content | markdownify}}</div>
 	<div class="list-wrap">
-		{% for m in page.mentors %}
+		{% for m in page.our_mentors.mentors %}
 		<div class="list-chunk mentor-width">
 			<blockquote class="body-font"><strong>{{m.name}}</strong><br>-{{m.role}}</blockquote>
 		</div>
