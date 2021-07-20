@@ -163,17 +163,7 @@ tiers:
 		{{page.tiers_intro.content|markdownify}}
 	</div>
 	<div class="list-wrap">
-    <div class="list-chunk tier-width-2">
-        <div class="tier-width tier-width-full">
-        {% assign t = page.tiers[0] %}
-        {% include tier.html t=t %}
-        </div>
-        <div class="tier-width tier-width-full">
-        {% assign t = page.tiers[1] %}
-        {% include tier.html t=t %}
-        </div>
-    </div>
-    {% for t in page.tiers offset:2 %}
+    {% for t in page.tiers %}
     {% assign style_attr = "" %}
     {% if t.title == "Great White" %}
       {% assign style_attr = "style='background-color:#093172'" %}
