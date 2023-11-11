@@ -117,5 +117,7 @@ If you want to fork this repository for use as the GitHub Pages site for a user 
        {% comment %}Add additional elsif clauses for other GitHub users/orgs and and their Netlify site domains above this line{% endcomment %}
        ```
 
+# Troubleshooting
 
+If a site fails to update because Netlify checks fail, someone may need to log in to the team's Netlify account and to do something like update the update the server image that is being used. This is extremely rare but if it needs to be done, they will need to sign in to [netlify.com](https://www.netlify.com) using the GitHub account associated with `deepbluerobotics@gmail.com`. The lead mentors have the password needed to access that GitHub account.
 
